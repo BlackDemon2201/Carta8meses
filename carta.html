@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta para mi Futura Profesora - 8 Meses</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #fff5f5 0%, #f0f9ff 100%);
+            color: #5e2b7a;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            position: relative;
+        }
+        .paper {
+            background-color: #fff9f9;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(94, 43, 122, 0.2);
+            position: relative;
+            border: 1px solid #f8d7da;
+            overflow: hidden;
+        }
+        .paper::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: linear-gradient(135deg, #5e2b7a 0%, #d14d7a 100%);
+        }
+        h1 {
+            color: #d14d7a;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        .letter-content {
+            line-height: 1.8;
+            font-size: 1.1em;
+            text-align: justify;
+            position: relative;
+        }
+        .signature {
+            text-align: right;
+            font-style: italic;
+            margin-top: 40px;
+            font-family: 'Brush Script MT', cursive;
+            color: #5e2b7a;
+            font-size: 1.3em;
+        }
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: #d14d7a;
+            animation: blink 0.7s infinite;
+            vertical-align: middle;
+            margin-left: 3px;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #5e2b7a 0%, #d14d7a 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+        }
+        .music-control i {
+            font-size: 1.5em;
+        }
+        .floating-hearts {
+            position: absolute;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .floating-school {
+            position: absolute;
+            pointer-events: none;
+            font-size: 1.5em;
+            opacity: 0.7;
+            z-index: -1;
+        }
+        .date {
+            text-align: right;
+            color: #5e2b7a;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .highlight {
+            color: #d14d7a;
+            font-weight: bold;
+        }
+        .special {
+            background-color: #f8e8f8;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .qualities-list {
+            margin: 25px 0;
+            padding-left: 20px;
+        }
+        .quality-item {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 30px;
+            line-height: 1.6;
+        }
+        .quality-item:before {
+            content: "✦";
+            color: #d14d7a;
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+        .promises-list {
+            margin: 25px 0;
+            background: #f8f0fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #5e2b7a;
+        }
+        .promise-item {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+        .promise-item:before {
+            content: "♡";
+            color: #d14d7a;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <audio id="bgMusic" loop>
+        <source src="Karlos Rosé - Niña De Mi Corazón.mp3" type="audio/mp3">
+        Tu navegador no soporta audio HTML5.
+    </audio>
+    <button class="music-control" onclick="toggleMusic()">
+        <i class="fas fa-music"></i>
+    </button>
+
+    <div class="container">
+        <div class="paper">
+            <div class="date">Julio 08 del 2025</div>
+            <h1>Para mi <span class="highlight">Futura Profesora</span> 💖</h1>
+            
+            <div class="letter-content" id="typedContent"></div>
+            
+            <div class="signature">
+                Con todo mi amor,<br>
+                <span class="highlight">Miguel</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Carta adaptada para estudiante de educación infantil
+        const letter = `Mi niña de mi corazón,
+
+hoy celebramos ocho meses de un amor que florece entre libros y sueños, entre tus estudios y nuestros momentos robados a la distancia. Ocho meses desde que decidimos unir nuestros caminos, desafiando los kilómetros entre Lima y Pucallpa, demostrando que el amor verdadero no conoce de distancias.
+
+<div class="qualities-list">
+    <div class="quality-item">Tu <span class="special">paciencia infinita</span>, que aplicas tanto con los niños en tus prácticas como conmigo cuando la distancia pesa.</div>
+    <div class="quality-item">Esa <span class="special">creatividad</span> que pones en cada proyecto académico y en cada detalle nuestro para mantener viva la llama.</div>
+    <div class="quality-item">La <span class="special">ternura natural</span> que muestras al hablar de tus pequeños alumnos, igual que la que me brindas en cada mensaje.</div>
+    <div class="quality-item">Tu <span class="special">compromiso inquebrantable</span>, dividido sabiamente entre tu carrera y lo nuestro.</div>
+</div>
+
+No ha sido fácil, lo sé. Entre tus horarios de clase, tus trabajos grupales a última hora y mis propias responsabilidades, hemos tenido que ser inventivos para encontrarnos. Pero cada mensaje entre tus estudios, cada mensaje de buenos días antes de que corras a la universidad, cada "te cuento cómo me fue" al final de tu jornada estudiantil o de tu dia a dia... son el combustible que mantiene vivo este amor.
+
+<div class="promises-list">
+    <div class="promise-item">Admiro profundamente tu dedicación a convertirte en la mejor versión de ti misma.</div>
+    <div class="promise-item">Estoy orgulloso de cada paso que das hacia tu sueño de educar corazones jóvenes.</div>
+    <div class="promise-item">No hay distancia que apague lo que siento por la mujer estudiosa y apasionada que eres.</div>
+    <div class="promise-item">Seré tu compañero de viaje mientras te conviertes en esa profesora inspiradora que ya vislumbro en ti.</div>
+</div>
+
+Gracias por estos ocho meses de aprendizaje mutuo, de apoyo incondicional, de crecer juntos aunque separados. Gracias por permitirme ser parte de este hermoso proceso en el que te transformas en la <span class="special">educadora</span> que siempre has querido ser.
+
+Te amo hoy, mañana y siempre. Y cuando por fin estemos frente a frente, podré decirte con toda certeza: "Valió la pena cada segundo de espera".
+
+Con todo mi amor y admiración,`;
+
+        // Efecto de máquina de escribir
+        let i = 0;
+        const speed = 20;
+        const contentElement = document.getElementById('typedContent');
+        const cursorElement = document.createElement('span');
+        cursorElement.className = 'cursor';
+        
+        function typeWriter() {
+            if (i < letter.length) {
+                contentElement.innerHTML = letter.substring(0, i) + (i < letter.length - 1 ? '|' : '');
+                i++;
+                setTimeout(typeWriter, speed);
+            } else {
+                contentElement.innerHTML = letter;
+                cursorElement.style.display = 'none';
+                createHearts();
+                createSchoolElements();
+            }
+        }
+
+        // Control de música
+        const music = document.getElementById('bgMusic');
+        music.volume = 0.3;
+        
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                document.querySelector('.music-control i').className = 'fas fa-pause';
+            } else {
+                music.pause();
+                document.querySelector('.music-control i').className = 'fas fa-music';
+            }
+        }
+
+        // Efectos visuales
+        function createHearts() {
+            const hearts = ['❤️', '💖', '💕', '💗', '💓', '💞', '💘'];
+            const colors = ['#d14d7a', '#5e2b7a', '#2b7a5e', '#7a5e2b'];
+            
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'floating-hearts';
+                    heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.top = -50 + 'px';
+                    heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                    heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+                    heart.style.opacity = Math.random() * 0.7 + 0.3;
+                    heart.style.animation = `float ${Math.random() * 10 + 10}s linear infinite`;
+                    
+                    document.body.appendChild(heart);
+                }, i * 300);
+            }
+        }
+
+        function createSchoolElements() {
+            const schoolIcons = ['📚', '✏️', '🎨', '🧮', '📝', '🏫', '👩‍🏫'];
+            
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const element = document.createElement('div');
+                    element.className = 'floating-school';
+                    element.innerHTML = schoolIcons[Math.floor(Math.random() * schoolIcons.length)];
+                    element.style.left = Math.random() * 100 + 'vw';
+                    element.style.top = -30 + 'px';
+                    element.style.fontSize = (Math.random() * 25 + 15) + 'px';
+                    element.style.animation = `float ${Math.random() * 15 + 15}s linear infinite`;
+                    element.style.transform = `rotate(${Math.random() * 360}deg)`;
+                    
+                    document.body.appendChild(element);
+                }, i * 400);
+            }
+        }
+
+        // Animaciones
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes float {
+                0% {
+                    transform: translateY(0) rotate(0deg);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(calc(100vh + 100px)) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Iniciar
+        window.onload = function() {
+            contentElement.appendChild(cursorElement);
+            setTimeout(typeWriter, 1000);
+            
+            const promise = music.play();
+            if (promise !== undefined) {
+                promise.catch(error => {
+                    document.querySelector('.music-control i').className = 'fas fa-music';
+                });
+            }
+        };
+    </script>
+</body>
+</html>

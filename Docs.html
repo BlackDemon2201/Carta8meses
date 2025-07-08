@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡8 Meses de Amor! 🌟</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #fff5f5 0%, #f0f9ff 100%);
+            text-align: center;
+            color: #5e2b7a;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #d14d7a;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .subtitle {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #5e2b7a;
+        }
+        .heart {
+            font-size: 2em;
+            animation: pulse 1.5s infinite, colors 6s infinite alternate;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+        @keyframes colors {
+            0% { color: #d14d7a; }
+            33% { color: #5e2b7a; }
+            66% { color: #2b7a5e; }
+            100% { color: #7a5e2b; }
+        }
+        .message-box {
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            text-align: left;
+            border-left: 5px solid #5e2b7a;
+        }
+        .photo-frame {
+            border: 10px solid #5e2b7a;
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 300px;
+            background-color: #f8d7da;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(94, 43, 122, 0.2);
+        }
+        .question-box {
+            background: linear-gradient(135deg, #fef6e4 0%, #e4f6fe 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px dashed #5e2b7a;
+        }
+        .error-message {
+            color: #e63946;
+            font-weight: bold;
+            margin-top: 10px;
+            animation: shake 0.5s;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        input[type="text"] {
+            padding: 12px;
+            border-radius: 25px;
+            border: 2px solid #5e2b7a;
+            width: 70%;
+            margin: 10px 0;
+            font-family: 'Comic Sans MS', cursive;
+            text-align: center;
+            font-size: 1em;
+        }
+        .button {
+            background: linear-gradient(135deg, #5e2b7a 0%, #d14d7a 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1em;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+        }
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(135deg, #d14d7a 0%, #5e2b7a 100%);
+        }
+        .hidden {
+            display: none;
+        }
+        .continue-button {
+            margin-top: 20px;
+            background: linear-gradient(135deg, #2b7a5e 0%, #5e2b7a 100%);
+            font-size: 1.1em;
+            padding: 15px 30px;
+        }
+        .continue-button:hover {
+            background: linear-gradient(135deg, #5e2b7a 0%, #2b7a5e 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¡Feliz 8 Meses! 🌸</h1>
+        <p class="subtitle">Para la futura maestra que enseñara con el corazón...</p>
+        <div class="heart">💖</div>
+
+        <div class="photo-frame">
+            <div style="font-size: 4em; color: #5e2b7a;">👩‍🏫❤️👨</div>
+            <p style="font-size: 1.2em; margin-top: 10px; color: #5e2b7a;">
+                "Nuestra mejor foto está en construcción...<br>
+                ¡Como los futuros proyectos de tus niños! 🖍️"
+            </p>
+        </div>
+
+        <div class="question-box">
+            <h3 style="color: #5e2b7a;">¿Recuerdas la primera canción que te dediqué?</h3>
+            <p style="color: #5e2b7a;">Escribe el título exacto para descubrir un mensaje especial:</p>
+            <input type="text" id="songAnswer" placeholder="Escribe aquí el título de la canción...">
+            <button class="button" onclick="checkSong()">Comprobar respuesta</button>
+            <p id="errorMsg" class="error-message hidden">¡Ups! Esa no es la canción correcta. Inténtalo de nuevo. 💕</p>
+        </div>
+
+        <div id="secretMessage" class="hidden">
+            <div class="message-box">
+                <h2 style="color: #5e2b7a;">Querida Compañera de Vida,</h2>
+                <p>Hoy celebramos <span style="color: #d14d7a; font-weight: bold;">8 meses</span> de amor, risas compartidas y momentos inolvidables, a pesar de la distancia que nos separa. Cada día contigo es una lección de ternura, paciencia y dulzura... cualidades que solo un corazón de maestra infantil puede enseñar. <span style="color: #2b7a5e;">🌼📚</span></p>
+                <p>Eres mi historia favorita, esa que quiero leer una y mil veces. Eres mi aventura soñada... y el final feliz que siempre imaginé. <span style="color: #d14d7a;">🧸✨</span></p>
+                <p>Gracias por pintar de colores mi vida, como solo tú sabes hacerlo.</p>
+                <p style="text-align: right; color: #5e2b7a;">Con todo mi amor,<br><strong>Miguel</strong></p>
+            </div>
+            
+            <button class="button continue-button" onclick="window.location.href='carta.html'">Leer mi carta especial para ti 📜💌</button>
+        </div>
+    </div>
+
+    <script>
+        // Reemplaza esto con el título EXACTO de la canción que le dedicaste
+        const CANCION_CORRECTA = "Niña de mi corazón"; 
+        
+        function checkSong() {
+            const respuesta = document.getElementById("songAnswer").value.trim();
+            const errorMsg = document.getElementById("errorMsg");
+            const secretMessage = document.getElementById("secretMessage");
+            
+            if (respuesta.toLowerCase() === CANCION_CORRECTA.toLowerCase()) {
+                errorMsg.classList.add("hidden");
+                secretMessage.classList.remove("hidden");
+                // Desplazarse suavemente al mensaje
+                secretMessage.scrollIntoView({ behavior: 'smooth' });
+                
+                // Efecto de confeti virtual
+                for (let i = 0; i < 50; i++) {
+                    setTimeout(() => {
+                        createHeart();
+                    }, i * 100);
+                }
+            } else {
+                errorMsg.classList.remove("hidden");
+                // Animación de "shake" para el mensaje de error
+                errorMsg.style.animation = "none";
+                setTimeout(() => {
+                    errorMsg.style.animation = "";
+                }, 10);
+            }
+        }
+        
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.innerHTML = "❤️";
+            heart.style.position = "fixed";
+            heart.style.fontSize = Math.random() * 20 + 10 + "px";
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.top = -50 + "px";
+            heart.style.opacity = Math.random() * 0.5 + 0.5;
+            heart.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        
+        // Añadir la animación de caída para los corazones
+        const style = document.createElement("style");
+        style.innerHTML = `
+            @keyframes fall {
+                to {
+                    transform: translateY(${window.innerHeight + 50}px) rotate(360deg);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
